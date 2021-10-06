@@ -48,7 +48,11 @@ class ApplicationController extends Controller
          * settings in config/locale.
          * $ bin/console locale:generate zh-CN ru-RU fr-FR es-ES de-DE it-IT ja-JP
          */
-        I18n::initialize(['locale' => 'en_US','language' => 'en','timezone' => 'UTC']);
+        I18n::initialize([
+            'locale' => env('LOCALE', 'en_US'),
+            'language' => env('LANG', 'en'),
+            'timezone' => env('TIMEZONE', 'UTC')
+        ]);
     }
 
     protected function startup(): void

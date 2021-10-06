@@ -13,12 +13,12 @@ use Origin\Cache\Engine\FileEngine as CacheEngine;
 return [
     'App' => [
         'debug' => env('APP_DEBUG', true),
-        'name' => 'nuber',
+        'name' => env('APP_NAME', 'nuber'),
         'url' => env('APP_URL', 'https://localhost:3000'),
         'environment' => env('APP_ENV'),
         'namespace' => 'App',
         'encoding' => 'UTF-8',
-        'defaultTimezone' => 'UTC',
+        'defaultTimezone' => env('TIMEZONE', 'UTC'),
         'imageDownloadTimeout' => 60 * 5,
         'securityKey' => env('APP_KEY'),
         'schemaFormat' => 'php',
