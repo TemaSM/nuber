@@ -52,7 +52,9 @@ class ImageListCommand extends Command
 
             ksort($data['versions']);
             $latest = array_key_last($data['versions']);
-            $imageData['containerFingerprint'] = $data['versions'][$latest]['items']['lxd.tar.xz']['combined_squashfs_sha256'];
+            if (! empty($data['versions'][$latest]['items']['lxd.tar.xz']['combined_squashfs_sha256'])) {
+                $imageData['containerFingerprint'] = $data['versions'][$latest]['items']['lxd.tar.xz']['combined_squashfs_sha256'];
+            }
             if (! empty($data['versions'][$latest]['items']['lxd.tar.xz']['combined_disk-kvm-img_sha256'])) {
                 $imageData['virtualMachineFingerprint'] = $data['versions'][$latest]['items']['lxd.tar.xz']['combined_disk-kvm-img_sha256'];
             }

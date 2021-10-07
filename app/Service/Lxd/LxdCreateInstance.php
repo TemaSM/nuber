@@ -50,7 +50,7 @@ class LxdCreateInstance extends ApplicationService
             'config' => [
                 'limits.memory' => $memory,
                 'limits.cpu' => (string) $cpu,
-                'security.secureboot' => 'false'  // need for VMs
+                // 'security.secureboot' => 'false'  // need for VMs
             ],
             'devices' => [
                 'root' => [
